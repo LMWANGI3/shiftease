@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFT MANAGEMENT WEB APPLICATION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.19/index.global.min.css">
+    <link rel="stylesheet" href="/shiftease.css">
+</head>
+<body>
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="page login-page page-active">
+    <div class="login-card">
+      <div class="card-logo">
+        <img src="/IMAGES/calendericon.png" >
+        <h1><strong>SHIFT</strong>EASE</h1>
+      </div>
+      <form id="card-form">
+        <div class="card-input">
+          <label for="username">Employee Number</label>
+          <input type="text" id="employeeId" class="user-icon" placeholder="Enter your EK number" required>
+        </div>
+        <div class="card-input">
+          <label for="password">PASSWORD</label>
+          <input type="password" id="password" class="lock-icon" placeholder="Enter your password" required>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn" id="loginBtn">
+            SIGN IN <span class="big-arrow">&rarr;</span>
+          </button>
+        </div>
+      </form>
+      <a href="#" class="reset">Reset Password?</a>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div class="app" id="app" style="display: none;">
+    <header class="app-header">
+      <img src="/IMAGES/calendericon.png"> 
+      <h1><strong>SHIFT</strong>EASE </h1>
+    </header>
+
+    <!-- ALL PAGES -->
+    <div class="pages">
+      <!-- HOME PAGE -->
+      <div class="page home-page">
+        <h1>Welcome back, Lilian! 👋</h1>
+        <div class="stats">
+          <div class="stat-card">
+            <div><img src="/IMAGES/clockicon.png" alt=""></div>
+            <div class="stats-text">
+              <h3>40HRS</h3>
+              <p>Total Paid Hours</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div><img src="/IMAGES/calendericon.png" alt=""></div>
+            <div class="stats-text">
+              <h3>15HRS</h3>
+              <p>Total Overtime Hours</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div><img src="/IMAGES/groupicon.png" alt=""></div>
+            <div class="stats-text">
+              <h3 id="pendingSwapCounts">2</h3>
+              <p>Pending Swaps</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div><img src="/IMAGES/scheduleicon.png" alt=""></div>
+            <div class="stats-text">
+              <h3>40MIN</h3>
+              <p>Scheduled Not Ready</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="calendar"></div>
+
+        <div class="recent-activity">
+          <h3>Recent Activity</h3>
+          <ul>
+            <li>Coaching scheduled with Team Leader <span class="time">11:00AM-11:20AM</span></li>
+            <li>Shift on <span class="date" style="color: brown;">29TH Jan</span> approved.</li>
+            <li class="swap-item">
+              <div class="swap-top">
+                <span class="swap">Pending swap</span>
+                <button class="arrow-button">&#8250</button>
+              </div>
+              <div class="swap-options">
+                <button class="accept">Accept</button> 
+                <button class="decline">Decline</button>
+              </div>
+            </li>
+            <li>Shift on <span class="date" style="color: brown;">27TH Jan</span> declined.</li>
+            <li id="view"><a href="#">View all activity</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SHIFTS PAGE -->
+      <div class="page shifts-page">
+   <h3>My Shifts</h3>
+   <div class="week-container">
+  <button class="week-arrow left" id="prevWeek">&#10094;</button>
+
+  <div class="week-cards" id="weekCards">
+    <div class="week-card active" data-week="lastWeek">
+      <span>Last Week</span>
+      <small>18 – 24 Jan</small>
+    </div>
+
+    <div class="week-card" data-week="currentWeek">
+      <span>This Week</span>
+      <small>25 – 31 Jan</small>
+    </div>
+
+    <div class="week-card" data-week="nextWeek">
+      <span>Next Week</span>
+      <small>1 – 7 Feb</small>
+    </div>
+
+    <div class="week-card" data-week="weekPlus2">
+      <span>+2 Weeks</span>
+      <small>8 – 14 Feb</small>
+    </div>
+  </div>
+
+  <button class="week-arrow right" id="nextWeek">&#10095;</button>
+</div>
+
+   <div id="shiftDisplay"></div>
+    </div>
+
+      <!-- SWAP PAGE -->
+      <div class="page swap-page">
+        <h3>My Shifts</h3>
+        <p>32 hours scheduled</p>
+
+        <div class="container">
+
+          <!-- Step 1: Select Your Shift -->
+          <div id="step1" class="step-container">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <div class="step-title">Select Your Shift</div>
+            </div>
+            <div class="shift-options">
+              <div class="shift-card" data-shift-id="1" data-date="Tuesday, February 3" data-time="📅 09:00 - 17:00" data-role="Technical Support">
+                <div class="shift-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="shift-details">
+                  <div class="shift-date">Tue, Feb 3</div>
+                  <div class="shift-time">📅 09:00 - 17:00</div>
+                  <div class="shift-role">Customer Service</div>
+                </div>
+              </div>
+              <div class="shift-card" data-shift-id="2" data-date="Wednesday, February 4" data-time="📅 13:00 - 21:00" data-role="Customer Service">
+                <div class="shift-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="shift-details">
+                  <div class="shift-date">Wed, Feb 4</div>
+                  <div class="shift-time">📅 13:00 - 21:00</div>
+                  <div class="shift-role">Customer Service</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Find Agent to Swap With -->
+          <div id="step2" class="step-container hidden">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <div class="step-title">Find Agent to Swap With</div>
+            </div>
+            <div class="search-container">
+              <input type="text" class="search-box" id="searchAgent" placeholder="Search by name or employee number...">
+            </div>
+            <div class="agent-list" id="agentList"></div>
+            <div class="button-container">
+              <div></div>
+              <button class="btn btn-primary" id="continueToReviewBtn" disabled>Continue to Review →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Review and Send Request -->
+          <div id="step3" class="step-container hidden">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <div class="step-title">Review Swap Request</div>
+            </div>
+            <div class="review-section">
+              <div class="swap-details">
+                <div class="swap-title">Your Shift to Swap</div>
+                <div class="swap-row">
+                  <div class="swap-item">
+                    <div class="swap-label">Date & Time</div>
+                    <div class="swap-value" id="yourShiftDate"></div>
+                    <div class="swap-value" id="yourShiftTime"></div>
+                  </div>
+                  <div class="swap-item">
+                    <div class="swap-label">Role</div>
+                    <div class="swap-value" id="yourShiftRole"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swap-details">
+                <div class="swap-title">Swapping With</div>
+                <div class="swap-row">
+                  <div class="swap-item">
+                    <div class="swap-label">Agent</div>
+                    <div class="swap-value" id="swapAgentName"></div>
+                    <div class="swap-value" id="swapAgentId"></div>
+                  </div>
+                  <div class="swap-item">
+                    <div class="swap-label">Role</div>
+                    <div class="swap-value" id="swapAgentRole"></div>
+                    <div class="swap-value">
+                      <div class="availability"><i class="fas fa-star"></i> Available</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="message-container">
+                <div class="message-label">Add a Message (Optional)</div>
+                <textarea class="message-box" id="messageBox" placeholder="Let them know why you'd like to swap..."></textarea>
+              </div>
+            </div>
+            <div class="button-container">
+              <button class="btn btn-back" id="backToStep2Btn">Go Back</button>
+              <button class="btn btn-primary" id="sendRequestBtn">Send Request →</button>
+            </div>
+          </div>
+
+          <!-- Success Step -->
+          <div id="successStep" class="step-container hidden">
+            <div class="success-container">
+              <div class="success-icon"><i class="fas fa-check"></i></div>
+              <h2 class="success-title">Request Sent!</h2>
+              <p class="success-message">
+                Your swap request has been sent to <span id="sentAgentName"></span>.<br>
+                You'll be notified when they respond.
+              </p>
+              <button class="btn btn-primary" id="newSwapBtn">Go Back</button>
+            </div>
+          </div>
+
+        </div> <!-- container -->
+      </div> <!-- swap-page -->
+
+      <!-- CHAT PAGE -->
+      <div class="page chat-page">
+        <h3>Swap Chat</h3>
+        <p>Post your shift swap request below:</p>
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input-container">
+            <textarea id="chatInput" placeholder="Write your swap request..."></textarea>
+            <button id="sendChatBtn">Post</button>
+          </div>
+        </div>
+      </div> <!-- chat-page -->
+
+    </div> <!-- pages -->
+
+    <!-- NAV -->
+    <div class="page-nav">
+      <div class="nav-content">
+      <button id="homePage" class="nav-btn active" data-page="home-page">
+        <img src="/IMAGES/homepageicon.png">
+        <span>Home</span>
+      </button>
+      <button id="showShifts" class="nav-btn" data-page="shifts-page">
+        <img src="/IMAGES/calendarpageicon.png">
+        <span>Shifts</span>
+      </button>
+      <button id="toSwap" class="nav-btn" data-page="swap-page">
+        <img src="/IMAGES/repeaticon.png">
+        <span>Swap</span>
+      </button>
+      <button id="showChat" class="nav-btn" data-page="chat-page">
+        <img src="/IMAGES/chatpageicon.png">
+        <span>Chat</span>
+      </button>
+      </div>
+    </div>
+
+  </div> <!-- app -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.19/index.global.min.js"></script>
+<script src="/shiftease.js"></script>
+</body>
+</html>
+
