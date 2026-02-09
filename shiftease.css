@@ -14,7 +14,7 @@ html, body {
 /* Hide all pages */
 .page {
   display: none;
-  padding: 95px 12px 110px; 
+  padding: 110px 12px; 
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
