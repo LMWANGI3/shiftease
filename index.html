@@ -81,25 +81,46 @@
         <div id="calendar"></div>
 
         <div class="recent-activity">
-          <h3>Recent Activity</h3>
-          <ul>
-            <li>Coaching scheduled with Team Leader <span class="time">11:00AM-11:20AM</span></li>
-            <li>Shift on <span class="date" style="color: brown;">29TH Jan</span> approved.</li>
-            <li class="swap-item">
-              <div class="swap-top">
-                <span class="swap">Pending swap</span>
-                <button class="arrow-button">&#8250</button>
-              </div>
-              <div class="swap-options">
-                <button class="accept">Accept</button> 
-                <button class="decline">Decline</button>
-              </div>
-            </li>
-            <li>Shift on <span class="date" style="color: brown;">27TH Jan</span> declined.</li>
-            <li id="view"><a href="#">View all activity</a></li>
-          </ul>
-        </div>
+  <h3>Recent Activity</h3>
+  <ul>
+
+    <li class="activity-item">
+      <p class="activity-text">
+    Coaching scheduled with Team Leader
+    <span class="time">11:00AM–11:20AM</span></p>
+  <button class="mark-read">Mark as read</button>
+    </li>
+
+    <li class="activity-item">
+      <p class="activity-text">
+        Shift on <span class="date" style="color: brown;">29TH Jan</span> approved</p>
+      <button class="mark-read">Mark as read</button>
+    </li>
+
+    <li class="swap-item activity-item">
+      <div class="swap-top">
+        <span class="swap" style="color: #2c3e50;">Pending swap</span>
+        <button class="arrow-button">&#8250</button>
       </div>
+
+      <div class="swap-options">
+        <button class="accept">Accept</button> 
+        <button class="decline">Decline</button>
+      </div>
+
+      <button class="mark-read">Mark as read</button>
+    </li>
+
+    <li class="activity-item">
+      <p class="activity-text">
+        Shift on <span class="date" style="color: brown;">20TH Jan</span> declined</p>
+      <button class="mark-read">Mark as read</button>
+    </li>
+
+    <li id="view"><a href="#">View all activity</a></li>
+
+  </ul>
+</div>
 
       <!-- SHIFTS PAGE -->
       <div class="page shifts-page">

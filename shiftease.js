@@ -71,6 +71,18 @@ if(declineBtn){
         swapItem.style.display = 'none';
     });  
 }
+document.querySelectorAll(".mark-read").forEach(button => {
+  button.addEventListener("click", function () {
+    const item = this.closest("li");
+
+    item.style.opacity = "0";
+    item.style.transition = "0.3s";
+
+    setTimeout(() => {
+      item.remove();
+    }, 300);
+  });
+});
 
 const view = document.getElementById('view');  //get the element with the id view
 if(view){    //check id the id exists
@@ -416,7 +428,6 @@ const agents = [
                 `;
                 
                 agentCard.addEventListener('click', function() {
-                    console.log("Agent clicked:", agent.name);
                     
                     // Remove selected class from all agent cards
                     document.querySelectorAll('.agent-card').forEach(card => {
@@ -497,7 +508,6 @@ const agents = [
 // Try to force update one element
 if (yourShiftDateElement) {
     yourShiftDateElement.textContent = "TEST - If you see this, elements work";
-    console.log("Test text set!");
 }
   init();
 

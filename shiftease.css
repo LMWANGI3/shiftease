@@ -225,6 +225,32 @@ button span{
     justify-content: space-between;
     align-items: center;
 }
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.activity-text {
+  margin: 0;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.mark-read {
+   width: auto;
+  padding: 4px 10px;
+  font-size: 12px;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mark-read:hover {
+  background: #d1d5db;
+}
 .swap-item .swap{
      font-weight: bold;
 }
@@ -296,6 +322,18 @@ button span{
 }
 .hidden-activity .show{
     display: list-item;
+}
+@media (max-width: 600px) {
+
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mark-read {
+    align-self: flex-end;
+    margin-top: 5px;
+  }
 }
 
 .page.swap-page {
