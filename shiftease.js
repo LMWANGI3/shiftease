@@ -428,6 +428,7 @@ const agents = [
                 `;
                 
                 agentCard.addEventListener('click', function() {
+                    console.log("Agent clicked:", agent.name);
                     
                     // Remove selected class from all agent cards
                     document.querySelectorAll('.agent-card').forEach(card => {
@@ -508,6 +509,7 @@ const agents = [
 // Try to force update one element
 if (yourShiftDateElement) {
     yourShiftDateElement.textContent = "TEST - If you see this, elements work";
+    console.log("Test text set!");
 }
   init();
 
