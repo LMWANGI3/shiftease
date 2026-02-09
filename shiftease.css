@@ -9,11 +9,16 @@ html, body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background: #f5f7fa;
+  overflow-x: hidden;
 }
 /* Hide all pages */
 .page {
   display: none;
-  padding: 120px 20px 90px; 
+  padding: 95px 12px 110px; 
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 110px;
 }
 /* Active page default */
 .page.page-active {
@@ -136,7 +141,7 @@ button span{
     background: rgb(221, 233, 243);
     align-items: center;
     gap: 10px;
-    padding: 10px 200px;
+    padding: 10px 40px;
     z-index: 100;
 }
 .app-header img{
@@ -695,7 +700,7 @@ padding: 20px;
 
 /* CHAT CONTAINER */
 .chat-container {
-  height: 50vh;
+  height: calc(100vh - 220px);
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
@@ -757,7 +762,7 @@ padding: 20px;
 /* Reply text input */
 .reply-input {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   min-height: 50px;
   padding: 8px 10px;
   border-radius: 6px;
@@ -820,15 +825,16 @@ padding: 20px;
   border-top: 1px solid #eee;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
   padding: 10px 0;
+  height: 85px;   /* 🔥 increase height */
   z-index: 1000;
 }
 .nav-content {
-  max-width: 500px;     /* controls how wide content sits */
-  margin: 0 auto;       /* centers horizontally */
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-   gap: 40px;
+  align-items: center;   /* 🔥 vertical center */
+  justify-content: space-around;
+  height: 100%;          /* fill nav height */
 }
 
 .page-nav button {
@@ -838,15 +844,20 @@ padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;  /* 🔥 center vertically */
+  gap: 4px;
   font-size: 12px;
   color: #666;
+  height: 100%;             /* fill container */
 }
+
 .page-nav button img {
   width: 22px;
   height: 22px;
   margin-bottom: 3px;
   opacity: 0.7;
 }
+
 .page-nav button span{
     color: inherit;
     font-size: 16px;
@@ -1049,6 +1060,93 @@ padding: 20px;
 }
 .direct-btn:hover {
   color: #3498db;
+}
+
+@media (max-width: 768px) {
+
+  /* Reduce header spacing */
+  .page {
+    padding: 95px 12px 120px;
+  }
+  .page-nav {
+    height: 90px;
+    padding: 12px 0;
+  }
+
+  .page-nav button img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .page-nav button span {
+    font-size: 11px;
+  }
+
+  /* Header resize */
+  .app-header {
+    height: 75px;
+    padding: 10px 20px;
+  }
+
+  .app-header h1 strong {
+    font-size: 1.6rem;
+  }
+
+  /* Home stats stack */
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Swap container spacing */
+  .page.swap-page {
+    padding: 95px 12px 80px;
+  }
+
+  /* Step cards shrink */
+  .step-container {
+    padding: 18px;
+  }
+
+  /* Buttons wrap */
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Agent cards stack nicely */
+  .agent-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Chat container taller on phone */
+  .chat-container {
+    height: calc(100vh - 200px);
+  }
+
+  /* Chat input stack */
+  .chat-input-container {
+    flex-direction: column;
+  }
+
+  #sendChatBtn {
+    width: 100%;
+  }
+
+  /* Reply input stack */
+  .reply-input-container {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .reply-btn {
+    width: 100%;
+  }
+
+  /* Week cards scroll nicely */
+  .week-card {
+    min-width: 120px;
+  }
 }
 
 
