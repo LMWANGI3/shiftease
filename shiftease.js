@@ -202,11 +202,11 @@ function setActiveWeek(index) {
 
 
 const agents = [
-            { id: 1, name: "Sarah Johnson", empId: "EK-23456", role: "Technical Support-line 100", available: true },
-            { id: 2, name: "Emily Rodriguez", empId: "EK-45678", role: "Technical Support-line 200", available: true },
-            { id: 3, name: "Jessica Williams", empId: "EK-67890", role: "Technical Support-sms support", available: false},
+            { id: 1, name: "Sarah Johnson", empId: "EK-23456", role: "Customer Service-line 100", available: true },
+            { id: 2, name: "Emily Rodriguez", empId: "EK-45678", role: "Customer Service-line 200", available: true },
+            { id: 3, name: "Jessica Williams", empId: "EK-67890", role: "Customer Service-sms support", available: false},
             { id: 4, name: "Michael Brown", empId: "EK-12345", role: "Customer Service-social media support", available: true },
-            { id: 5, name: "David Chen", empId: "EK-34567", role: "Technical Support-email support", available: false },
+            { id: 5, name: "David Chen", empId: "EK-34567", role: "Customer Service-email support", available: false },
             { id: 6, name: "Lisa Thompson", empId: "EK-78901", role: "Customer Service-line 400", available: true }
         ];
 
