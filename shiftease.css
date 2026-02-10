@@ -242,7 +242,7 @@ button span{
   padding: 4px 10px;
   font-size: 12px;
   border: none;
-  background: #e5e7eb;
+  background: #a3a4a5;
   border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
@@ -335,7 +335,6 @@ button span{
     margin-top: 5px;
   }
 }
-
 .page.swap-page {
   padding: 20px 25px; /* spacing around content */
   max-width: 900px; /* optional max width */
