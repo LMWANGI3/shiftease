@@ -17,7 +17,7 @@ form.addEventListener('submit', function(e) {
 });
 
 let myCalendar = null;
-function createCalendarCalendar() {
+function createCalendar() {
   const calendarEl = document.getElementById("calendar");
   if (!calendarEl);
      return;
