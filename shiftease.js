@@ -1,5 +1,4 @@
 
-let myCalendar = null;
 const loginBtn = document.getElementById('loginBtn');
 const loginPage = document.getElementById('loginPage');
 const app = document.getElementById('app');
@@ -13,13 +12,15 @@ form.addEventListener('submit', function(e) {
   app.style.display = 'block';
   openPage('home-page');
   setTimeout(() => {
-    initCalendar();
+    createCalendar();
   }, 50); 
 });
 
-function initCalendar() {
+let myCalendar = null;
+function createCalendarCalendar() {
   const calendarEl = document.getElementById("calendar");
-  if (!calendarEl) return;
+  if (!calendarEl);
+     return;
 
   if (!myCalendar) {
     myCalendar = new FullCalendar.Calendar(calendarEl, {
