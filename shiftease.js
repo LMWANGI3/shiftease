@@ -36,9 +36,9 @@ function createCalendar() {
 const arrowButton = document.querySelector('.arrow-button'); 
 if(arrowButton){
  arrowButton.addEventListener('click',()=>{
-     const swapItem= arrowButton.closest('.swap-item');
-     swapItem.classList.toggle('open');
-    });
+const swapItem= arrowButton.closest('.swap-item');
+swapItem.classList.toggle('open');
+});
 }
 
 const acceptBtn = document.querySelector('.accept-btn');
@@ -46,7 +46,7 @@ const declineBtn = document.querySelector('.decline-btn');
 if(acceptBtn){
     acceptBtn.addEventListener('click',()=>{
         const swapItem = acceptBtn.closest('.swap-item');
-        const swapText = swapItem.querySelector('.swap');
+        const swapText = swapItem.querySelector('.swap'); 
         alert('Swap accepted, waiting for approval');
         swapItem.style.display = 'none';
 
@@ -78,8 +78,8 @@ const view = document.getElementById('view');
 if(view){    
 view.addEventListener('click',(e)=>{  
     e.preventDefault();       
-const hiddenActitity = document.querySelectorAll('.hidden-activity');   
-    hiddenActitity.forEach(task=>             
+const hiddenActivity = document.querySelectorAll('.hidden-activity');   
+    hiddenActivity.forEach(task=>             
         task.classList.toggle('show'));  
 });
 }
